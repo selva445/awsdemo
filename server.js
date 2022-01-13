@@ -1,16 +1,17 @@
-'use strict';
-
-const express = require('express');
-
-// Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
-
-// App
+const express = require("express");
 const app = express();
-app.get('/', (req, res) => {
-  res.send('<h1 style="color:green;">Java Home App - version-10!!</h1> \n');
+const port = process.env.PORT || 3000;
+const config = require("config");
+console.log(config);
+
+app.get("/", (req, res) => {
+  res.send("CICD App V1!");
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.get("/status", (req, res) => {
+  res.send("ok");
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});

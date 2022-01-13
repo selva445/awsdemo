@@ -1,9 +1,6 @@
-ARG REPO=151296449863.dkr.ecr.us-east-1.amazonaws.com/node:latest
-FROM ${REPO}/node:12
+FROM node:14
 
-
-
-# Create app directory
+# Setting working directory. All the path will be relative to WORKDIR
 WORKDIR /usr/src/app
 
 # Install app dependencies
@@ -13,10 +10,10 @@ COPY package*.json ./
 
 RUN npm install
 # If you are building your code for production
-# RUN npm install --only=production
+# RUN npm ci --only=production
 
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
-CMD [ "npm", "start" ]
+EXPOSE 3000
+CMD [ "node", "index.js" ]
