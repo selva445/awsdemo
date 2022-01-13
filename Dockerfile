@@ -1,4 +1,5 @@
-FROM node:carbon
+ARG REPO=151296449863.dkr.ecr.us-east-1.amazonaws.com/node:latest
+FROM ${REPO}/node:12
 
 
 
